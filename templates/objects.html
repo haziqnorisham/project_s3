@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>objects</h1>
+<h2>{{ current_directory }}</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Bucket Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bucket in buckets %}
+        <tr>
+            <td>{{ bucket }}</td>
+            <td>
+                <a href="{{ request.url + '/' + bucket }}">View</a>
+                <form action="{{ request.url + '/' + bucket }}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="POST">
+                    <button type="submit">Download</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+  

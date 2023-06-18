@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>buckets</h1>
+<h2>{{ current_directory }}</h2>
+<ul>
+    {% for bucket in buckets %}
+    <li><a href="{{ bucket }}">{{ bucket }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
+  

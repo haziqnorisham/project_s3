@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Object Details</h1>    
+    <table>
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, value in response.items() %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>
+                        {% if value is mapping %}
+                            <table>
+                                {% for inner_key, inner_value in value.items() %}
+                                    <tr>
+                                        <td>{{ inner_key }}</td>
+                                        <td>{{ inner_value }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        {% else %}
+                            {{ value }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

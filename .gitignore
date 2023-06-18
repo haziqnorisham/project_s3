@@ -1,0 +1,6 @@
+/venv/
+/downloaded_objects/
+__pycache__/
+/.vscode/
+config.py
+/local_cache/
